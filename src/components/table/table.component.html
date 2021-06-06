@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="table-container">
+        <div class="table-display">Page {{currentPage}}
+          of {{totalItemCount}}
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Updated at</th>
+              <th>Homepage</th>
+              <th>Score</th>
+              <th>Stargazers count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of tableData$ | async">
+                <td>{{row.name}}</td>
+                <td>{{row.updated_at}}</td>
+                <td>{{row.homepage}}</td>
+                <td>{{row.score}}</td>
+                <td>{{row.stargazers_count}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <label [ngClass]="{'disabled': disablePrevious()}" (click)="!disablePrevious() && prevPage()">« Previous</label>
+          <label *ngFor="let page of pagenumbers()" 
+            (click)="goToPage(page)"
+            [ngClass]="{'current': page === currentPage}">{{page}}</label>
+          
+          <label [ngClass]="{'disabled': disableNext()}" (click)="!disableNext() && nextPage()">Next »</label>
+        </div>
+      </div>
+</div>
+
