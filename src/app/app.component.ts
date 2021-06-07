@@ -3,6 +3,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { RepositoryItem } from 'src/models';
 import { IAppState } from 'src/ngrx/app.state';
 import { GitRepository } from 'src/ngrx/git-repositories';
 import { IRepoTable } from 'src/ngrx/git-repositories/selectors';
@@ -15,7 +16,7 @@ import { DataSourceService } from 'src/services/datasource.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public tableData$: Observable<IRepoTable[]>;
+  public tableData$: Observable<RepositoryItem[]>;
   public totalItemCount$: Observable<number>;
   constructor(private store: Store<IAppState>, private datasource: DataSourceService) {
     this.tableData$ = this.datasource.data$;

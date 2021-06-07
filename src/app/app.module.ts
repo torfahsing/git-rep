@@ -9,11 +9,14 @@ import { GitRepositoryEffects } from 'src/ngrx/git-repositories/effects';
 
 import { AppComponent } from './app.component';
 import { TableComponent } from '../components/table/table.component';
+import { PaginationComponent } from '../components/pagination/pagination.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+    TableComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { TableComponent } from '../components/table/table.component';
       maxAge: 25, // Retains last 25 states
       logOnly: false, // Restrict extension to log-only mode
     }),
-    EffectsModule.forRoot([GitRepositoryEffects])
+    EffectsModule.forRoot([GitRepositoryEffects]),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

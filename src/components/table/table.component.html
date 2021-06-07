@@ -1,8 +1,5 @@
 <div class="card">
     <div class="table-container">
-        <div class="table-display">Page {{currentPage}}
-          of {{totalItemCount}}
-        </div>
         <table>
           <thead>
             <tr>
@@ -15,22 +12,21 @@
           </thead>
           <tbody>
             <tr *ngFor="let row of tableData$ | async">
-                <td>{{row.name}}</td>
-                <td>{{row.updated_at}}</td>
-                <td>{{row.homepage}}</td>
-                <td>{{row.score}}</td>
-                <td>{{row.stargazers_count}}</td>
+                <td [attr.data-content]="'Name'">{{row.name}}</td>
+                <td [attr.data-content]="'Updated at'">{{row.updated_at.toLocaleString()}}</td>
+                <td [attr.data-content]="'Homepage'">{{row.homepage}}</td>
+                <td [attr.data-content]="'Score'">{{row.score}}</td>
+                <td [attr.data-content]="'Stargazers count'">{{row.stargazers_count}}</td>
             </tr>
           </tbody>
         </table>
-        <div class="pagination">
-          <label [ngClass]="{'disabled': disablePrevious()}" (click)="!disablePrevious() && prevPage()">« Previous</label>
-          <label *ngFor="let page of pagenumbers()" 
-            (click)="goToPage(page)"
-            [ngClass]="{'current': page === currentPage}">{{page}}</label>
-          
-          <label [ngClass]="{'disabled': disableNext()}" (click)="!disableNext() && nextPage()">Next »</label>
-        </div>
+        <app-pagination
+          [numberOfButtons]="10"
+          [lastPage]="totalItemCount / itemsPerPage"
+          [itemsPerPage]="itemsPerPage"
+          [totalItemCount]="totalItemCount"
+        >
+        </app-pagination>
       </div>
 </div>
 

@@ -5,9 +5,9 @@ import { Store } from '@ngrx/store';
 import { combineLatest, Observable, of } from 'rxjs';
 import { filter, map, max, withLatestFrom } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { RepositoryItem } from 'src/models';
 import { IAppState } from 'src/ngrx/app.state';
 import { GitRepository } from 'src/ngrx/git-repositories';
-import { IRepoTable } from 'src/ngrx/git-repositories/selectors';
 
 @UntilDestroy()
 @Injectable({
@@ -15,7 +15,7 @@ import { IRepoTable } from 'src/ngrx/git-repositories/selectors';
 })
 export class DataSourceService {
   
-  public data$: Observable<IRepoTable[]>;
+  public data$: Observable<RepositoryItem[]>;
   public totalItems$: Observable<number>;
 
   constructor(private store: Store<IAppState>) {

@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+$card-max-width: auto;
+
+$table-container-max-height: 820px;
+
+$table-background-color: #ffffff;
+$table-hover-background-color: darken($table-background-color, 8%);
+$table-even-background-color: darken($table-background-color, 4%);
+$table-header-color: #ffffff;
+$table-header-background-color: #501ead;
+
+$pagination-background-color: #6f6f6f;
+
+$pagination-label-color: #ffffff;
+$pagination-label-background-color: $pagination-background-color;
+$pagination-label-active-color: #ffffff;
+$pagination-label-active-background-color:
+  darken($pagination-background-color, 15%);
+$pagination-label-disabled-color: #ffffff;
+$pagination-label-disabled-background-color:
+  lighten($pagination-background-color, 15%);
+
+$table-title-color: #ffffff;
+$table-title-background-color: #2f2f2f;

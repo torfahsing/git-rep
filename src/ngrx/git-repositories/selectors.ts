@@ -8,17 +8,7 @@ export const { selectEntities, selectIds, selectAll } = gitRepositoryEntityAdapt
 
 export const getTableData = createSelector(
     selectAll,
-    (all) => {
-        return all.map(a => ({ 
-            name: a.name, 
-            full_name: a.full_name, 
-            homepage: a.homepage, 
-            description: a.description, 
-            updated_at: a.updated_at,
-            score: a.score,
-            stargazers_count: a.stargazers_count
-        } as IRepoTable))
-    }
+    (all) => all
 )
 
 export const getNumberOfItemsLoaded = createSelector(

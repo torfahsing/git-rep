@@ -1,0 +1,30 @@
+@import '../../styles.scss';
+
+.pagination {
+    background-color: $pagination-background-color;
+    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    & > label {
+      color: $pagination-label-color;
+      padding: 10px;
+      cursor: pointer;
+
+      & > .disabled {
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+  }
+
+  .disabled {
+    cursor: default  !important;
+    background-color: lighten($pagination-label-background-color, 10%) !important;
+    pointer-events: none;
+}
+.current {
+  background-color: darken($pagination-label-background-color, 10%) !important;
+}

@@ -1,0 +1,13 @@
+<div class="pagination">
+    <label [ngClass]="{'disabled': disablePrevious()}" (click)="!disablePrevious() && prevPage()">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+    </label>
+    <label *ngFor="let page of pagenumbers()" 
+        (click)="goToPage(page)"
+        [ngClass]="{'current': page === currentPage}">{{page}}</label>
+
+    <label [ngClass]="{'disabled': disableNext()}" (click)="!disableNext() && nextPage()">
+        <fa-icon [icon]="faArrowRight"></fa-icon>
+    </label>
+</div>
+
